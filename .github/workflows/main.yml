@@ -1,12 +1,15 @@
-name: CI/CD Pipeline
+name: Helm Diff
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  diff-deployment:
+
+  build:
+
     runs-on: self-hosted
     steps:
     - name: Checkout code
