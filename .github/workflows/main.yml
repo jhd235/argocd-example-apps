@@ -17,4 +17,5 @@ jobs:
 
     - name: Check Helm release status
       run: |
-        helm status RELEASE_NAME -n NAMESPACE
+        #helm status RELEASE_NAME -n NAMESPACE
+        helm ls -n default
