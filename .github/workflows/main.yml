@@ -17,7 +17,9 @@ jobs:
     - name: Set Helm Home
       run: echo "HELM_HOME=$HOME/.config/helm" >> $GITHUB_ENV
     - name: Install Helm Diff plugin
-      run: helm plugin install https://github.com/databus23/helm-diff
+      run: |
+        mkdir -p "$HELM_HOME/plugins"
+        helm plugin install https://github.com/databus23/helm-diff
 
     - name: Check Helm release status
       run: |
