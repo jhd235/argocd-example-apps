@@ -14,8 +14,10 @@ jobs:
       uses: azure/setup-helm@v1
       with:
         version: 'latest'
+    - name: Install Helm Diff plugin
+      run: helm plugin install https://github.com/databus23/helm-diff
 
     - name: Check Helm release status
       run: |
-        #helm status RELEASE_NAME -n NAMESPACE
         helm ls -n default
+        helm diff upgrade -h
